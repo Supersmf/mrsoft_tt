@@ -9,8 +9,12 @@
 <body>
     <div class="wrapper">
         <div class="menu">
-            <input type="text" name="filter" class="inputValue" placeholder="Search...">
-            <input type="checkbox" class="registr" name="registr">
+            <div class="filter">
+            	<input type="text" name="filter" class="inputValue" 
+            		placeholder="Search..." autofocus>
+            	<p class="note"></p>
+            </div>
+            <input type="checkbox" class="registr" data-title="Registr" name="registr">
             <button class="btnCount">By count</button>
             <button class="btnString">By string</button>
         </div>

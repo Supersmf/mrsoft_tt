@@ -1,10 +1,12 @@
 $bodyColor: #f6f8fa;
 $btnColor: #254e85;
 $textColor: #1aa260;
+$warningColor: #c8312b;
 
 * {
     margin: 0;
     box-sizing: border-box;
+    outline: none;
 }
 
 body {
@@ -20,6 +22,14 @@ button {
     background: $btnColor;
     color: white;
     border: none;
+
+    &:hover {
+        opacity: 0.5;
+    }
+
+    &:active {
+        transform: scale(0.95);
+    }
 }
 
 .wrapper {
@@ -50,6 +60,17 @@ button {
         margin: 10px;
     }
 
+    .filter {
+        position: relative;
+        .note {
+            position: absolute;
+            bottom: -10px;
+            left: 15px;
+            color: $warningColor;
+            font-size: 0.8rem;
+        }
+    }
+
     ol {
         display: flex;
         flex-wrap: wrap;
@@ -59,6 +80,53 @@ button {
             color: $textColor;
         }
     }
+}
+
+.registr:before,
+.registr:after {
+  display: block;
+  position: absolute;
+  visibility: hidden;
+  opacity: 0; 
+  margin-bottom: 15px;
+  transition: opacity .7s, margin-bottom .7s;
+  left: 50%;
+}
+
+.registr {
+  position: relative;
+  cursor: pointer;
+  
+}
+
+.registr:before {
+  bottom: 18px;
+  left: 50%;
+  padding: 2px;
+  width: 60px;
+  margin-left: -20px;
+  color: white;
+  background-color: rgba(0,0,0,.85);
+  content: attr(data-title);
+  border-radius: 10px;
+  box-shadow: border-box;
+  text-align: center;
+}
+
+.registr:after {
+  content: "";
+  border-top: 8px solid rgba(0,0,0,.85);
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  bottom: 10px;
+  margin-left: -10px;
+}
+
+.registr:hover:before,
+.registr:hover:after {
+  opacity: 1;
+  margin-bottom: 0;
+  visibility: visible;
 }
 
 @media only screen and (max-width: 500px) {
@@ -89,7 +157,7 @@ button {
 
         ol {
             display: block;
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             li {
                 margin: 0;
             }
