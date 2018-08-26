@@ -1,16 +1,18 @@
 import httpGet from './httpGet';
 import stringFilter from './stringFilter';
-// import countFilter from './countFilter';
+import countFilter from './countFilter';
+import './style/style.scss'
 
-let url = 'http://www.mrsoft.by/data.json';
+const url = 'http://www.mrsoft.by/data.json';
+const inputElement = document.querySelector('.inputValue');
+const registr = document.querySelector('.registr');
+const buttonCount = document.querySelector('.btnCount');
+const buttonString = document.querySelector('.btnString');
+const resultValue = document.querySelector('.resultValue');
+const list = document.createElement('ol');
+
 let info = null;
 let result = null;
-const inputElement = document.querySelector('#inputValue');
-const registr = document.querySelector('#registr');
-const buttonCount = document.querySelector('#byCount');
-const buttonString = document.querySelector('#byString');
-const resultValue = document.querySelector('#resultValue');
-const list = document.createElement('ul');
 
 
 httpGet(url)
@@ -34,5 +36,6 @@ buttonString.addEventListener('click', (e) => {
 });
 
 buttonCount.addEventListener('click', (e) => {
-    console.log(inputElement.value)
+    let result = countFilter(info.data, inputElement.value);
+    paintList(result);
 });
