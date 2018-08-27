@@ -7,7 +7,7 @@
 /coverage
 
 # production
-/build
+/buil_d
 
 # misc
 .DS_Store

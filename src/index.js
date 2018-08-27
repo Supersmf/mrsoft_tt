@@ -3,7 +3,7 @@ import stringFilter from './stringFilter';
 import countFilter from './countFilter';
 import './style/style.scss'
 
-const url = 'http://www.mrsoft.by/data.json';
+const url = 'https://cors.io/?http://www.mrsoft.by/data.json';
 const inputElement = document.querySelector('.inputValue');
 const registr = document.querySelector('.registr');
 const buttonCount = document.querySelector('.btnCount');
